@@ -6,7 +6,7 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 class AnimatedPanel extends JPanel {
-    private final String text = "Freelance Hub";
+    private final String text = "FreelanceHub";
     private int x_coordinate;
     private int text_y_position;
     private int direction = 1; 
@@ -126,7 +126,7 @@ public class Main {
             Font buttonFont = new Font("Times New Roman", Font.BOLD, 20);
             Dimension buttonSize = new Dimension(150, 50);
 
-            JButton button = new JButton("Login !!");
+            JButton button = new JButton("Login");
             button.addActionListener(e -> {
                  Auth a = new Auth();
                  a.login();
@@ -138,7 +138,7 @@ public class Main {
             button.setFont(buttonFont);
 
             
-            JButton button2 = new JButton("Register!!");
+            JButton button2 = new JButton("Register");
             button2.addActionListener(e -> { 
                  Auth a = new Auth();
                  a.register();
@@ -156,6 +156,19 @@ public class Main {
             eastPanel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 
             frame.add(eastPanel, BorderLayout.EAST);
+            JPanel southPanel = new JPanel();
+            southPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 10));
+            southPanel.setBackground(Color.LIGHT_GRAY);
+            southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.Y_AXIS));
+            JTextPane text3 = new JTextPane();
+            text3.setContentType("text/html");
+            text3.setText("<html><div style='text-align:center;font-family:Courier New;font-size:15'>"
+                    + "Made with love ❤️"
+                    + "</div></html>");
+            text3.setEditable(false);
+            southPanel.add(text3);
+            text3.setBackground(Color.LIGHT_GRAY);
+            frame.add(southPanel, BorderLayout.SOUTH);
             frame.setVisible(true);
         });
     }
