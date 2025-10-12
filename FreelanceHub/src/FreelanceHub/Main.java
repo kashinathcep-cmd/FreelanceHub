@@ -4,14 +4,17 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 @SuppressWarnings("serial")
 class AnimatedPanel extends JPanel {
+	
     private final String text = "FreelanceHub";
     private int x_coordinate;
     private int text_y_position;
     private int direction = 1; 
-
+	
     public AnimatedPanel() {
+    	try {
         this.setBackground(Color.DARK_GRAY);
         this.setPreferredSize(new Dimension(0, 60)); 
 
@@ -28,10 +31,15 @@ class AnimatedPanel extends JPanel {
             repaint();
         });
         timer.start();
+    	}
+    	catch (Exception e) {
+    		System.out.println("Error occured:"+e);
+    	}
     }
 
     @Override
     protected void paintComponent(Graphics g) {
+    	try {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
@@ -47,6 +55,10 @@ class AnimatedPanel extends JPanel {
         }
 
         g2d.drawString(text, x_coordinate, text_y_position);
+    	}
+    	catch (Exception e) {
+    		System.out.println("Error occured:"+e);
+    	}
     }
 }
 
@@ -136,13 +148,11 @@ public class Main {
             button.setAlignmentX(Component.CENTER_ALIGNMENT);
             button.setMaximumSize(buttonSize);
             button.setFont(buttonFont);
-
             
             JButton button2 = new JButton("Register");
             button2.addActionListener(e -> { 
                  Auth a = new Auth();
-                 a.register();
-                 
+                 a.register();  
             });
             button2.setAlignmentX(Component.CENTER_ALIGNMENT);
             button2.setMaximumSize(buttonSize);
@@ -163,7 +173,7 @@ public class Main {
             JTextPane text3 = new JTextPane();
             text3.setContentType("text/html");
             text3.setText("<html><div style='text-align:center;font-family:Courier New;font-size:15'>"
-                    + "Made with love ❤️"
+                    + "Made with love ❤️ and coffee"
                     + "</div></html>");
             text3.setEditable(false);
             southPanel.add(text3);
