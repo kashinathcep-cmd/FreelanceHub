@@ -10,7 +10,7 @@ public class FrameManager {
     	if (frame == null) {
     	
     	SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("FreelanceHub");
+            frame = new JFrame("FreelanceHub");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
             frame.setLayout(new BorderLayout(10, 10));

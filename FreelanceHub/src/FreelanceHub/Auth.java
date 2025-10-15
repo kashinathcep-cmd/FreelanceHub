@@ -39,10 +39,15 @@ public class Auth {
 
                         if (count > 0) {
                             
-                            JFrame frame = new JFrame("Dashboard - " + user_ID);
-                            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                            frame.setVisible(true);
+                        	JFrame frame = FrameManager.getFrame();
+                        	frame.setTitle("Dashboard - " + user_ID);
+                        	frame.getContentPane().removeAll();
+                        	JPanel dashboardPanel = new JPanel();
+                        	dashboardPanel.add(new JLabel("Welcome, " + user_ID + "!"));
+                        	dashboardPanel.setBackground(Color.LIGHT_GRAY);
+                        	frame.add(dashboardPanel, java.awt.BorderLayout.CENTER);
+                        	frame.revalidate();
+                        	frame.repaint();
                         } else {
                             JOptionPane.showMessageDialog(null, "User doesn't exist, register please!");
                         }
