@@ -29,14 +29,20 @@ public class DatabaseConnection {
                 user_id VARCHAR(50) PRIMARY KEY,
                 password VARCHAR(50) NOT NULL
             )""";
+        String createClients = """
+                CREATE TABLE IF NOT EXISTS clients (
+                    client_id INT AUTO_INCREMENT PRIMARY KEY,
+                    client_name VARCHAR(100) NOT NULL,
+                    contact_info VARCHAR(255)
+                )""";
 
         String createProjects = """
             CREATE TABLE IF NOT EXISTS project (
                 project_id INT AUTO_INCREMENT PRIMARY KEY,
                 project_name VARCHAR(100) NOT NULL,
                 description TEXT,
-                user_id VARCHAR(50),
                 FOREIGN KEY (user_id) REFERENCES users(user_id)
+                FOREIGN KEY (client_id) REFERENCES clients(client_id)
             )""";
 
         String createTasks = """
@@ -50,6 +56,7 @@ public class DatabaseConnection {
             )""";
 
         stmt.executeUpdate(createUsers);
+        stmt.executeUpdate(createClients);
         stmt.executeUpdate(createProjects);
         stmt.executeUpdate(createTasks);
         System.out.println("Tables created successfully");
