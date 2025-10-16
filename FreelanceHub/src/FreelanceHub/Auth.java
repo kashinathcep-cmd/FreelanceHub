@@ -115,7 +115,8 @@ public class Auth {
                         	});
 
                         	updateBtn.addActionListener(e -> {
-                        	    //update(); 
+                        		Update u = new Update();
+                        	    u.update(); 
                         	});
 
                         } else {
