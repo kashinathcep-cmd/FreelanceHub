@@ -41,13 +41,82 @@ public class Auth {
                             
                         	JFrame frame = FrameManager.getFrame();
                         	frame.setTitle("Dashboard - " + user_ID);
+
                         	frame.getContentPane().removeAll();
-                        	JPanel dashboardPanel = new JPanel();
-                        	dashboardPanel.add(new JLabel("Welcome, " + user_ID + "!"));
-                        	dashboardPanel.setBackground(Color.LIGHT_GRAY);
-                        	frame.add(dashboardPanel, java.awt.BorderLayout.CENTER);
+                        	frame.setLayout(new BorderLayout(10, 10));
+                        	frame.getContentPane().setBackground(Color.LIGHT_GRAY);
+
+                        	JPanel northPanel = new JPanel();
+                        	northPanel.setBackground(Color.LIGHT_GRAY);
+                        	northPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+
+                        	JLabel titleLabel = new JLabel("Welcome to FreelanceHub");
+                        	titleLabel.setFont(new Font("Times New Roman", Font.BOLD, 28));
+                        	northPanel.add(titleLabel);
+
+                        	frame.add(northPanel, BorderLayout.NORTH);
+
+                        	JPanel westPanel = new JPanel();
+                        	westPanel.setLayout(new GridLayout(4, 1, 5, 5)); 
+                        	westPanel.setBackground(Color.LIGHT_GRAY);
+                        	westPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+
+                        	westPanel.setBorder(BorderFactory.createCompoundBorder(
+                        	        BorderFactory.createLineBorder(Color.BLACK, 2),
+                        	        BorderFactory.createEmptyBorder(20, 20, 20, 20)
+                        	));
+
+                        	Font buttonFont = new Font("Times New Roman", Font.BOLD, 18);
+
+                        	JButton createBtn = new JButton("<html><div style='text-align:center;font-family:Courier New;font-size:12'>Add a task/client/project</div> </html>");
+                        	JButton deleteBtn = new JButton("<html><div style='text-align:center;font-family:Courier New;font-size:12'>Delete a task/client/project</div> </html>");
+                        	JButton viewBtn = new JButton("<html><div style='text-align:center;font-family:Courier New;font-size:12'>View project/task/clients</body> </div>");
+                        	JButton updateBtn = new JButton("<html><div style='text-align:center;font-family:Courier New;font-size:12'>Update a task/client/project</div> </html>");
+
+                        	JButton[] buttons = {createBtn, deleteBtn, viewBtn, updateBtn};
+                        	for (JButton btn : buttons) {
+                        	    btn.setFont(buttonFont);
+                        	
+                        	    btn.setBackground(Color.WHITE);
+                        	    westPanel.add(btn);
+                        	}
+
+                        	frame.add(westPanel, BorderLayout.WEST);
+
+                        	JPanel centerPanel = new JPanel();
+                        	centerPanel.setBackground(Color.LIGHT_GRAY);
+                        	
+
+                        	frame.add(centerPanel, BorderLayout.CENTER);
+
+                        	JPanel southPanel = new JPanel();
+                        	southPanel.setBackground(Color.LIGHT_GRAY);
+                        	southPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+
+                        	JLabel footerLabel = new JLabel("<html><body> Made with love ❤️</body> </html>");
+                        	footerLabel.setFont(new Font("Times New Roman", Font.ITALIC, 16));
+                        	southPanel.add(footerLabel);
+
+                        	frame.add(southPanel, BorderLayout.SOUTH);
+
                         	frame.revalidate();
                         	frame.repaint();
+                        	createBtn.addActionListener(e -> {
+                        	    createProjectOrTask(); 
+                        	});
+
+                        	deleteBtn.addActionListener(e -> {
+                        	    deleteProjectOrTask(); 
+                        	});
+
+                        	viewBtn.addActionListener(e -> {
+                        	    viewProjectsOrTasks(); 
+                        	});
+
+                        	updateBtn.addActionListener(e -> {
+                        	    updateProjectOrTask(); 
+                        	});
+
                         } else {
                             JOptionPane.showMessageDialog(null, "User doesn't exist, register please!");
                         }
