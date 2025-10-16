@@ -1,5 +1,6 @@
 package FreelanceHub;
 import java.util.*;
+import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.* ;
 import java.sql.Connection;
@@ -107,11 +108,46 @@ public class Auth {
                         	});
 
                         	deleteBtn.addActionListener(e -> {
-                        	    //delete(); 
+                        		Delete d = new Delete();
+                        	    d.delete(); 
                         	});
 
+
+
                         	viewBtn.addActionListener(e -> {
-                        	    //view(); 
+                        	    View v = new View();
+                        	    
+                        	    TableModel tableModel = v.view();
+
+                        	    if (tableModel != null) {
+                        	        
+                        	        if (tableModel.getRowCount() == 0) {
+                        	            JOptionPane.showMessageDialog(frame, "No records found.", "View Result", JOptionPane.INFORMATION_MESSAGE);
+                        	            return; 
+                        	        }
+
+                        	                  
+                        	        JTable table = new JTable(tableModel);
+
+                        	       
+                        	        table.setFillsViewportHeight(true); 
+                        	        table.setAutoCreateRowSorter(true); 
+                        	        table.setRowHeight(25);             
+                        	        table.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 14)); 
+
+                        	        JScrollPane scrollPane = new JScrollPane(table);
+
+                        	        BorderLayout layout = (BorderLayout) frame.getContentPane().getLayout();
+                        	        Component oldCenterComponent = layout.getLayoutComponent(BorderLayout.CENTER);
+                        	        if (oldCenterComponent != null) {
+                        	            frame.getContentPane().remove(oldCenterComponent);
+                        	        }
+
+                        	        frame.add(scrollPane, BorderLayout.CENTER);
+
+                        	        frame.revalidate();
+                        	        frame.repaint();
+                        	    }
                         	});
 
                         	updateBtn.addActionListener(e -> {
