@@ -102,19 +102,20 @@ public class Auth {
                         	frame.revalidate();
                         	frame.repaint();
                         	createBtn.addActionListener(e -> {
-                        	    create(); 
+                        		Create c = new Create();
+                        	    c.create(); 
                         	});
 
                         	deleteBtn.addActionListener(e -> {
-                        	    delete(); 
+                        	    //delete(); 
                         	});
 
                         	viewBtn.addActionListener(e -> {
-                        	    view(); 
+                        	    //view(); 
                         	});
 
                         	updateBtn.addActionListener(e -> {
-                        	    update(); 
+                        	    //update(); 
                         	});
 
                         } else {
