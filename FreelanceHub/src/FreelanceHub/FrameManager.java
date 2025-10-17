@@ -1,7 +1,6 @@
 package FreelanceHub;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -92,9 +91,9 @@ public class FrameManager {
             
             JTextPane text2 = new JTextPane();
             text2.setContentType("text/html");
-            text2.setText("<html><div style='text-align:center;font-family:Sans-serif;font-size:14px;color:rgb(90,90,90)'>"
-                    + "<strong style='font-size:16px;color:rgb(50,50,50)'>Collaborators (GitHub)</strong><br><br>"
-                    + "justin roy (justinroy-01)<br><br>"
+            text2.setText("<html><div style='text-align:center;font-family:Sans-serif;font-size:12px;color:rgb(90,90,90)'>"
+                    + "<strong style='font-size:16px;color:rgb(50,50,50)'>Collaborators(GitHub)</strong><br><br>"
+                    + "justin roy(justinroy-01)<br><br>"
                     + "Sharath H<br><br>"
                     + "Islam S Mytheen<br><br>"
                     + "Kashinath<br><br>"
@@ -161,7 +160,7 @@ public class FrameManager {
             button.addMouseListener(buttonHover);
             button2.addMouseListener(buttonHover);
 
-            JLabel eastTitle = new JLabel("Get Started");
+            JLabel eastTitle = new JLabel("      Get Started      ");
             eastTitle.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
             eastTitle.setForeground(darkText);
             eastTitle.setAlignmentX(Component.CENTER_ALIGNMENT);

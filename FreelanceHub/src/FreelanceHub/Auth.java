@@ -1,7 +1,5 @@
 package FreelanceHub;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
@@ -14,7 +12,6 @@ import java.sql.SQLException;
 
 
 
-import FreelanceHub.DatabaseConnection;
 
 public class Auth {
 	
@@ -79,7 +76,7 @@ public class Auth {
                         	northPanel.setBackground(headerColor);
                         	northPanel.setBorder(BorderFactory.createEmptyBorder(20, 25, 20, 25));
 
-                        	JLabel titleLabel = new JLabel("Welcome to FreelanceHub");
+                        	JLabel titleLabel = new JLabel("Irasshaimase "+ user_ID);
                         	titleLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
                             titleLabel.setForeground(fontColor);
                         	northPanel.add(titleLabel);

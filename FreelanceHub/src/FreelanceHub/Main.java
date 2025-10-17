@@ -1,7 +1,6 @@
 package FreelanceHub;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 
